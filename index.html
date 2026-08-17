@@ -1373,6 +1373,76 @@
             transform: none
         }
 
+        .count-strip {
+            border-block: 1px solid var(--line);
+            background: var(--bg2);
+            padding: 18px 0
+        }
+
+        .count-in {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .count-label {
+            font-size: 15px;
+            color: var(--muted)
+        }
+
+        .count-num {
+            font-family: 'Lalezar';
+            font-size: clamp(24px, 4vw, 40px)
+        }
+
+        .about-box {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+            border: 2px solid var(--text);
+            background: var(--surface);
+            padding: 34px;
+            box-shadow: 14px 14px 0 var(--line)
+        }
+
+        .about-photo img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid var(--text);
+            border-radius: 50%
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 10px
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 18px
+        }
+
+        .chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        @media(max-width:700px) {
+            .about-box {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .chips {
+                justify-content: center
+            }
+        }
+
         @media(max-width:960px) {
             .hero-grid {
                 grid-template-columns: 1fr
