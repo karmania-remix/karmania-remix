@@ -1443,6 +1443,35 @@
             }
         }
 
+        #upload {
+            display: none
+        }
+
+        .req-box {
+            border: 2px solid var(--text);
+            background: var(--surface);
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 14px 14px 0 var(--line)
+        }
+
+        .req-icon {
+            font-size: 56px;
+            margin-bottom: 14px
+        }
+
+        .req-box h3 {
+            font-size: clamp(26px, 4vw, 40px);
+            margin-bottom: 10px
+        }
+
+        .req-box p {
+            color: var(--muted);
+            max-width: 460px;
+            margin: 0 auto 26px;
+            font-size: 15px
+        }
+
         @media(max-width:960px) {
             .hero-grid {
                 grid-template-columns: 1fr
@@ -1509,7 +1538,7 @@
             <a href="#top" class="logo"><span class="logo-disc"></span>کارمانیا ریمیکس</a>
             <div class="nav-links">
                 <a href="#library">کتابخانه</a>
-                <a href="#upload">آپلود</a>
+                <a href="#request">درخواست ریمیکس</a>
                 <a href="#footer">درباره</a>
             </div>
             <button id="themeBtn" class="ibtn" title="حالت شب / روز" aria-label="تغییر تم">
@@ -1544,7 +1573,7 @@
                         </svg>
                         پخش کتابخانه
                     </button>
-                    <a class="btn btn-ghost" href="#upload">آپلود ترک (مدیر) ↑</a>
+                    <a class="btn btn-ghost" href="#request">درخواست ریمیکس 🎧</a>
                 </div>
                 <div class="stats">
                     <div class="stat"><b id="statTracks">۰</b><span>ترک فعال</span></div>
@@ -1609,6 +1638,21 @@
         <div class="band-track" id="bandTrack"></div>
     </div>
 
+    <section class="section" id="request">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="num">۰۲</span>
+                <h2>ریمیکس درخواستی تو</h2>
+                <span class="line"></span>
+            </div>
+            <div class="req-box reveal">
+                <div class="req-icon">🎧</div>
+                <h3>آهنگی هست که دوست داری ریمیکس شود؟</h3>
+                <p>اسم آهنگ را برایم بفرست؛ اگر حالش بود، نسخهٔ کارمانیا ازش می‌سازم و همین‌جا منتشر می‌کنم!</p>
+                <a class="btn btn-solid" href="https://t.me/YOUR_ID" target="_blank">📨 درخواست در تلگرام</a>
+            </div>
+        </div>
+    </section>
     <section class="section" id="upload">
         <div class="wrap">
             <div class="sec-head reveal">
@@ -1666,7 +1710,7 @@
                 </div>
                 <div class="foot-links">
                     <a href="#library">کتابخانه</a>
-                    <a href="#upload">آپلود</a>
+                    <a href="#request">درخواست ریمیکس</a>
                     <a href="https://t.me/KarmaniaK8" target="_blank">تلگرام 📨</a>
                     <a href="https://www.instagram.com/karmania.remix?igsh=aTYzeW80MGhubTVz&igsi=aTYzeW80MGhubTVz"
                         target="_blank">اینستاگرام 📸</a>
@@ -2103,13 +2147,3 @@
 </body>
 
 </html>
-/* ═════════════ شمارش معکوس ═════════════ */
-const NEXT_RELEASE=new Date('2026-08-21T21:00:00+03:30');
-function tickCount(){
-let d=NEXT_RELEASE-Date.now();if(d<0)d=0; const dd=Math.floor(d/86400000),hh=Math.floor(d%86400000/3600000),
-    mm=Math.floor(d%3600000/60000),ss=Math.floor(d%60000/1000); $('#countdown').textContent=faNum(dd)+' روز
-    و '+faNum(hh)+' ساعت و '+faNum(mm)+' دقیقه و '+faNum(ss)+' ثانیه'; } tickCount();setInterval(tickCount,1000);
-    </script>
-    </body>
-
-    </html>
