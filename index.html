@@ -2072,7 +2072,6 @@
             // اگر خواستی فایل‌های MP3 را داخل پوشهٔ music بگذاری و برای همه منتشر شوند، اینجا معرفی کن:
             const MY_TRACKS = [
                 // {file:'music/song1.mp3', title:'آهنگ اول', artist:'نام هنرمند'}
-                 const MY_TRACKS = [
                 { file: 'music/karmania-remix.m4a', title: 'چه فایده', artist: 'کارمانیا ریمیکس', cover: 'covers/cover1.jpg' },
                 { file: 'music/eshgh ghadimi.mp3', title: 'عشق قدیمی', artist: 'کارمانیا ریمیکس', cover: 'covers/cover2.jpg' },
                 { file: 'music/man.tanha.mp3', title: 'من تنها', artist: 'کارمانیا ریمیکس', cover: 'covers/cover3.jpg' },
@@ -2104,3 +2103,13 @@
 </body>
 
 </html>
+/* ═════════════ شمارش معکوس ═════════════ */
+const NEXT_RELEASE=new Date('2026-08-21T21:00:00+03:30');
+function tickCount(){
+let d=NEXT_RELEASE-Date.now();if(d<0)d=0; const dd=Math.floor(d/86400000),hh=Math.floor(d%86400000/3600000),
+    mm=Math.floor(d%3600000/60000),ss=Math.floor(d%60000/1000); $('#countdown').textContent=faNum(dd)+' روز
+    و '+faNum(hh)+' ساعت و '+faNum(mm)+' دقیقه و '+faNum(ss)+' ثانیه'; } tickCount();setInterval(tickCount,1000);
+    </script>
+    </body>
+
+    </html>
