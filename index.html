@@ -1478,8 +1478,6 @@
                 </div>
                 <div class="stats">
                     <div class="stat"><b id="statTracks">۰</b><span>ترک فعال</span></div>
-                    <div class="stat"><b id="statPlays">۰</b><span>پخش</span></div>
-                    <div class="stat"><b id="statDl">۰</b><span>دانلود</span></div>
                 </div>
             </div>
             <div class="hero-deck">
@@ -1785,7 +1783,7 @@
    <img src="${t.cover}" alt="">
    <div><div class="t-title">${t.title}<span class="badge">${t.source === 'demo' ? 'دمو' : 'آپلود مدیر'}</span></div>
      <div class="t-sub">${t.artist}</div></div>
-   <div class="t-meta"><b>${fmtTime(t.duration)}</b><span>${faNum(t.plays)} پخش</span></div>
+      <div class="t-meta"><b>${fmtTime(t.duration)}</b></div>
    <button class="ibtn like ${liked.has(t.id) ? 'liked' : ''}" title="پسندیدن">${ICONS.heart}</button>
    <div class="t-actions">
      <button class="ibtn dl" title="دانلود">${ICONS.dl}</button>
@@ -1805,8 +1803,6 @@
         }
         function updateStats() {
             $('#statTracks').textContent = faNum(tracks.length);
-            $('#statPlays').textContent = faNum(tracks.reduce((a, t) => a + t.plays, 0));
-            $('#statDl').textContent = faNum(tracks.reduce((a, t) => a + t.dl, 0));
         }
 
         /* ═════════════ پلیر ═════════════ */
