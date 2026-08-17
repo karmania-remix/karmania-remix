@@ -1505,6 +1505,12 @@
             </div>
         </div>
     </header>
+    <div class="count-strip">
+        <div class="wrap count-in">
+            <span class="count-label">⏳ ریمیکس بعدی تا:</span>
+            <span id="countdown" class="count-num">—</span>
+        </div>
+    </div>
 
     <section class="section" id="library">
         <div class="wrap">
@@ -1591,6 +1597,9 @@
                 <div class="foot-links">
                     <a href="#library">کتابخانه</a>
                     <a href="#upload">آپلود</a>
+                    <a href="https://t.me/KarmaniaK8" target="_blank">تلگرام 📨</a>
+                    <a href="https://www.instagram.com/karmania.remix?igsh=aTYzeW80MGhubTVz&igsi=aTYzeW80MGhubTVz"
+                        target="_blank">اینستاگرام 📸</a>
                     <a href="#top">بازگشت به بالا ↑</a>
                 </div>
             </div>
@@ -1975,6 +1984,15 @@
         const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .12 });
         function observeReveals() { $$('.reveal:not(.in)').forEach(el => io.observe(el)) }
 
+        /* ═════════════ شمارش معکوس ═════════════ */
+        const NEXT_RELEASE = new Date('2026-08-24T21:00:00+03:30'); // ⚠️ تاریخ دلخواهت
+        function tickCount() {
+            let d = NEXT_RELEASE - Date.now(); if (d < 0) d = 0;
+            const dd = Math.floor(d / 86400000), hh = Math.floor(d % 86400000 / 3600000),
+                mm = Math.floor(d % 3600000 / 60000), ss = Math.floor(d % 60000 / 1000);
+            $('#countdown').textContent = faNum(dd) + ' روز و ' + faNum(hh) + ' ساعت و ' + faNum(mm) + ' دقیقه و ' + faNum(ss) + ' ثانیه';
+        }
+        tickCount(); setInterval(tickCount, 1000);
         /* ═════════════ شروع ═════════════ */
         (async function init() {
             $('#year').textContent = new Intl.DateTimeFormat('fa-IR', { year: 'numeric' }).format(new Date());
@@ -1984,15 +2002,16 @@
             // اگر خواستی فایل‌های MP3 را داخل پوشهٔ music بگذاری و برای همه منتشر شوند، اینجا معرفی کن:
             const MY_TRACKS = [
                 // {file:'music/song1.mp3', title:'آهنگ اول', artist:'نام هنرمند'}
-                { file: 'music/karmania-remix.m4a', title: 'چه فایده', artist: 'کارمانیا ریمیکس' },
-                { file: 'music/eshgh ghadimi.mp3', title: 'عشق قدیمی', artist: 'کارمانیا ریمیکس' },
-                { file: 'music/man.tanha.mp3', title: 'من تنها', artist: 'کارمانیا ریمیکس' },
+                 const MY_TRACKS = [
+                { file: 'music/karmania-remix.m4a', title: 'چه فایده', artist: 'کارمانیا ریمیکس', cover: 'covers/cover1.jpg' },
+                { file: 'music/eshgh ghadimi.mp3', title: 'عشق قدیمی', artist: 'کارمانیا ریمیکس', cover: 'covers/cover2.jpg' },
+                { file: 'music/man.tanha.mp3', title: 'من تنها', artist: 'کارمانیا ریمیکس', cover: 'covers/cover3.jpg' },
             ];
             MY_TRACKS.forEach((m, i) => {
                 const t = {
                     id: 'f' + i, source: 'demo', title: m.title, artist: m.artist, duration: 0,
                     ext: '.' + (m.file.split('.').pop() || 'mp3'), blob: null, url: m.file,
-                    cover: makeCover(1000 + i * 13), plays: 0, likes: 0, dl: 0, createdAt: Date.now()
+                    cover: m.cover || makeCover(1000 + i * 13), plays: 0, likes: 0, dl: 0, createdAt: Date.now()
                 };
                 tracks.push(t);
                 const a = new Audio(); a.preload = 'metadata'; a.src = m.file;
